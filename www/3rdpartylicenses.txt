@@ -465,9 +465,6 @@ SOFTWARE.
 ngx-ionic-image-viewer
 MIT
 
-ngx-mercadopago
-MIT
-
 regenerator-runtime
 MIT
 MIT License
