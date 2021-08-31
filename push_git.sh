@@ -1,1 +1,1 @@
-git add -A && git commit -m "deploy app" && git push origin master;
+cd .. && ng build --prod && cd prod/ && git add -A && git commit -m "deploy app" && git push origin master;
