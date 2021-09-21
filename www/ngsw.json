@@ -275,7 +275,7 @@
         "/98-es5.33eea423362f121e7db9.js",
         "/99-es2015.8eca49fd9837a079ad24.js",
         "/99-es5.8eca49fd9837a079ad24.js",
-        "/combined-sw.js",
+        "/combined-sw.js?vs=1",
         "/common-es2015.8dda1675bb79635af61b.js",
         "/common-es5.8dda1675bb79635af61b.js",
         "/firebase-messaging-sw.js",
