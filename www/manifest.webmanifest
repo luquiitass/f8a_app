@@ -2,10 +2,10 @@
   "name": "Futbol 8 Alem",
   "short_name": "Fútbol 8 Alem",
   "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "background_color": "#272727",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./",
+  "start_url": "./index.html",
   "gcm_sender_id": "381582243260",
   "icons": [
     {
