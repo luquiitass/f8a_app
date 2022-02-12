@@ -1,0 +1,1165 @@
+(function () {
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-home-home-module"], {
+    /***/
+    "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-messaging.js":
+    /*!************************************************************************************!*\
+      !*** ./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-messaging.js ***!
+      \************************************************************************************/
+
+    /*! exports provided: AngularFireMessaging, AngularFireMessagingModule, SERVICE_WORKER, VAPID_KEY */
+
+    /***/
+    function node_modulesAngularFire__ivy_ngcc__Fesm2015AngularFireMessagingJs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AngularFireMessaging", function () {
+        return AngularFireMessaging;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AngularFireMessagingModule", function () {
+        return AngularFireMessagingModule;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "SERVICE_WORKER", function () {
+        return SERVICE_WORKER;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "VAPID_KEY", function () {
+        return VAPID_KEY;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var firebase_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! firebase/app */
+      "./node_modules/firebase/app/dist/index.esm.js");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! rxjs */
+      "./node_modules/rxjs/_esm2015/index.js");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
+      /* harmony import */
+
+
+      var _angular_fire__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/fire */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+      var proxyPolyfillCompat = {
+        deleteToken: null,
+        getToken: null,
+        onMessage: null,
+        onBackgroundMessage: null,
+        onTokenRefresh: null,
+        requestPermission: null,
+        setBackgroundMessageHandler: null,
+        useServiceWorker: null,
+        usePublicVapidKey: null
+      };
+      var VAPID_KEY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('angularfire2.messaging.vapid-key');
+      var SERVICE_WORKER = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('angularfire2.messaging.service-worker-registeration'); // SEMVER(7): drop
+
+      var firebaseLTv8 = parseInt(firebase_app__WEBPACK_IMPORTED_MODULE_2__["default"].SDK_VERSION, 10) < 8;
+
+      var AngularFireMessaging = function AngularFireMessaging(options, nameOrConfig, // tslint:disable-next-line:ban-types
+      platformId, zone, vapidKey, _serviceWorker) {
+        var _this = this;
+
+        _classCallCheck(this, AngularFireMessaging);
+
+        var schedulers = new _angular_fire__WEBPACK_IMPORTED_MODULE_5__["ɵAngularFireSchedulers"](zone);
+        var serviceWorker = _serviceWorker;
+        var messaging = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () {
+          return Object(_angular_common__WEBPACK_IMPORTED_MODULE_6__["isPlatformServer"])(platformId) ? rxjs__WEBPACK_IMPORTED_MODULE_3__["EMPTY"] : __webpack_require__.e(
+          /*! import() | firebase-messaging */
+          "firebase-messaging").then(__webpack_require__.bind(null,
+          /*! firebase/messaging */
+          "./node_modules/firebase/messaging/dist/index.esm.js"));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () {
+          return Object(_angular_fire__WEBPACK_IMPORTED_MODULE_5__["ɵfirebaseAppFactory"])(options, zone, nameOrConfig);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (app) {
+          return Object(_angular_fire__WEBPACK_IMPORTED_MODULE_5__["ɵfetchInstance"])("".concat(app.name, ".messaging"), 'AngularFireMessaging', app, function () {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var messaging;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      messaging = app.messaging();
+
+                      if (!firebaseLTv8) {
+                        _context.next = 9;
+                        break;
+                      }
+
+                      if (vapidKey) {
+                        messaging.usePublicVapidKey(vapidKey);
+                      }
+
+                      if (!serviceWorker) {
+                        _context.next = 9;
+                        break;
+                      }
+
+                      _context.t0 = messaging;
+                      _context.next = 7;
+                      return serviceWorker;
+
+                    case 7:
+                      _context.t1 = _context.sent;
+
+                      _context.t0.useServiceWorker.call(_context.t0, _context.t1);
+
+                    case 9:
+                      return _context.abrupt("return", messaging);
+
+                    case 10:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee);
+            }));
+          }, [vapidKey, serviceWorker]);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["shareReplay"])({
+          bufferSize: 1,
+          refCount: false
+        }));
+        this.requestPermission = messaging.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), // tslint:disable-next-line
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (messaging) {
+          return firebase_app__WEBPACK_IMPORTED_MODULE_2__["default"].messaging.isSupported() ? messaging.requestPermission() : Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])('Not supported.');
+        }));
+        this.getToken = messaging.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (messaging) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            var serviceWorkerRegistration;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    if (!(firebase_app__WEBPACK_IMPORTED_MODULE_2__["default"].messaging.isSupported() && Notification.permission === 'granted')) {
+                      _context2.next = 20;
+                      break;
+                    }
+
+                    if (!firebaseLTv8) {
+                      _context2.next = 7;
+                      break;
+                    }
+
+                    _context2.next = 4;
+                    return messaging.getToken();
+
+                  case 4:
+                    return _context2.abrupt("return", _context2.sent);
+
+                  case 7:
+                    if (!serviceWorker) {
+                      _context2.next = 13;
+                      break;
+                    }
+
+                    _context2.next = 10;
+                    return serviceWorker;
+
+                  case 10:
+                    _context2.t0 = _context2.sent;
+                    _context2.next = 14;
+                    break;
+
+                  case 13:
+                    _context2.t0 = null;
+
+                  case 14:
+                    serviceWorkerRegistration = _context2.t0;
+                    _context2.next = 17;
+                    return messaging.getToken({
+                      vapidKey: vapidKey,
+                      serviceWorkerRegistration: serviceWorkerRegistration
+                    });
+
+                  case 17:
+                    return _context2.abrupt("return", _context2.sent);
+
+                  case 18:
+                    _context2.next = 21;
+                    break;
+
+                  case 20:
+                    return _context2.abrupt("return", null);
+
+                  case 21:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2);
+          }));
+        }));
+        var notificationPermission$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (emitter) {
+          navigator.permissions.query({
+            name: 'notifications'
+          }).then(function (notificationPerm) {
+            notificationPerm.onchange = function () {
+              return emitter.next();
+            };
+          });
+        });
+        var tokenChange$ = messaging.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMapTo"])(notificationPermission$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMapTo"])(this.getToken));
+        this.tokenChanges = messaging.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () {
+          return firebase_app__WEBPACK_IMPORTED_MODULE_2__["default"].messaging.isSupported() ? Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["concat"])(_this.getToken, tokenChange$) : rxjs__WEBPACK_IMPORTED_MODULE_3__["EMPTY"];
+        }));
+        this.messages = messaging.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (messaging) {
+          return firebase_app__WEBPACK_IMPORTED_MODULE_2__["default"].messaging.isSupported() ? new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (emitter) {
+            return messaging.onMessage(function (next) {
+              return emitter.next(next);
+            }, function (err) {
+              return emitter.error(err);
+            }, function () {
+              return emitter.complete();
+            });
+          }) : rxjs__WEBPACK_IMPORTED_MODULE_3__["EMPTY"];
+        }));
+        this.requestToken = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () {
+          return _this.requestPermission;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function () {
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function () {
+          return _this.tokenChanges;
+        })); // SEMVER(7): drop token
+
+        this.deleteToken = function (token) {
+          return messaging.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["subscribeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["observeOn"])(schedulers.insideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (messaging) {
+            return messaging.deleteToken(token || undefined);
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["defaultIfEmpty"])(false));
+        };
+
+        return Object(_angular_fire__WEBPACK_IMPORTED_MODULE_5__["ɵlazySDKProxy"])(this, messaging, zone);
+      };
+
+      AngularFireMessaging.ɵfac = function AngularFireMessaging_Factory(t) {
+        return new (t || AngularFireMessaging)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_OPTIONS"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_APP_NAME"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](VAPID_KEY, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](SERVICE_WORKER, 8));
+      };
+      /** @nocollapse */
+
+
+      AngularFireMessaging.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+        factory: function AngularFireMessaging_Factory() {
+          return new AngularFireMessaging(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_OPTIONS"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_APP_NAME"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](VAPID_KEY, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](SERVICE_WORKER, 8));
+        },
+        token: AngularFireMessaging,
+        providedIn: "any"
+      });
+      /** @nocollapse */
+
+      AngularFireMessaging.ctorParameters = function () {
+        return [{
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_OPTIONS"]]
+          }]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_APP_NAME"]]
+          }]
+        }, {
+          type: Object,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+          }]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
+        }, {
+          type: String,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [VAPID_KEY]
+          }]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [SERVICE_WORKER]
+          }]
+        }];
+      };
+      /*@__PURE__*/
+
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AngularFireMessaging, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+          args: [{
+            providedIn: 'any'
+          }]
+        }], function () {
+          return [{
+            type: undefined,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_OPTIONS"]]
+            }]
+          }, {
+            type: undefined,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }, {
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_fire__WEBPACK_IMPORTED_MODULE_5__["FIREBASE_APP_NAME"]]
+            }]
+          }, {
+            type: Object,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+            }]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
+          }, {
+            type: String,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }, {
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [VAPID_KEY]
+            }]
+          }, {
+            type: undefined,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }, {
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [SERVICE_WORKER]
+            }]
+          }];
+        }, null);
+      })();
+
+      Object(_angular_fire__WEBPACK_IMPORTED_MODULE_5__["ɵapplyMixins"])(AngularFireMessaging, [proxyPolyfillCompat]);
+
+      var AngularFireMessagingModule = function AngularFireMessagingModule() {
+        _classCallCheck(this, AngularFireMessagingModule);
+      };
+
+      AngularFireMessagingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+        type: AngularFireMessagingModule
+      });
+      AngularFireMessagingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+        factory: function AngularFireMessagingModule_Factory(t) {
+          return new (t || AngularFireMessagingModule)();
+        },
+        providers: [AngularFireMessaging]
+      });
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AngularFireMessagingModule, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
+          args: [{
+            providers: [AngularFireMessaging]
+          }]
+        }], null, null);
+      })();
+      /**
+       * Generated bundle index. Do not edit.
+       */
+      //# sourceMappingURL=angular-fire-messaging.js.map
+
+      /***/
+
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.page.html":
+    /*!*********************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.page.html ***!
+      \*********************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppPagesHomeHomePageHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n<ion-header>\n  <app-offline></app-offline>\n\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title> Fútbol 8 Alem </ion-title>\n    <ion-buttons slot=\"secondary\">\n      <ion-button *ngIf=\"chatService.isInit\" (click)=\"chatService.toggle()\" [color]=\"chatService.isVisible ? 'success' : ''\">\n        <ion-icon name=\"help-circle-outline\"></ion-icon>\n      </ion-button>  \n      \n      <ion-button routerLink=\"/notifications\" routerDirection=\"forward\"  >\n        <ion-icon name=\"notifications-outline\"></ion-icon>      \n        <ion-badge id=\"notifications-badge\" *ngIf=\"notificationsCount > 0\">{{notificationsCount}}</ion-badge>\n      </ion-button> \n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-menu side=\"start\" menuId=\"custom\" contentId=\"main\" class=\"my-custom-menu\">\n  <ion-header>\n    <ion-toolbar >\n      <ion-title>Menú</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n\n    <ion-list>\n      <ion-item routerLink=\"/my-profile\" routerDirection=\"forward\" >\n        <app-menu-user style=\"width: 100%;\"></app-menu-user>\n      </ion-item>\n      <!-- <ion-item>Mis Equipos</ion-item>\n      <ion-item>Mis Jugadores</ion-item>\n      <ion-item>Mis Partidos</ion-item> -->\n\n      <ion-item lines=\"full\" *ngIf=\"false\">\n        <ion-icon slot=\"start\" name=\"moon\"></ion-icon>\n        <ion-label>\n          Toggle Dark Theme\n        </ion-label>\n        <ion-toggle id=\"themeToggle\" slot=\"end\"></ion-toggle>\n      </ion-item>\n\n\n      <ion-item routerLink=\"/admin_home\" routerDirection=\"forward\" *ngIf=\"auth.isAdmin()\"  >Administrar APP</ion-item>\n      <ion-item routerLink=\"/my-profile\" routerDirection=\"forward\" >Mi perfil</ion-item>\n      <ion-item routerLink=\"/list-fields\" routerDirection=\"forward\" >Canchas</ion-item>\n      <ion-item routerLink=\"/payment\" routerDirection=\"forward\" *ngIf=\"paymentTeamService.isActive()\" >Mis pagos</ion-item>\n      <ion-item routerLink=\"/contact\" routerDirection=\"forward\" >Contacto</ion-item>\n      <ion-item (click)=\"logout()\" style=\"cursor: pointer;\">\n        <ion-label>Cerrar Sesión</ion-label>\n      </ion-item>\n      <div class=\"ion-text-center ion-padding bg-l2\">\n        <ion-text >Versión: 1.14 </ion-text>\n      </div>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n\n<ion-router-outlet id=\"main\"></ion-router-outlet>\n\n\n <ion-tabs slot=\"top\" color=\"primary\">\n\n    <ion-tab-bar slot=\"bottom\">\n      <ion-tab-button tab=\"results\">\n        <ion-icon name=\"clipboard-outline\"></ion-icon>\n        <ion-label>Resultado</ion-label>\n      </ion-tab-button>\n  \n      <ion-tab-button tab=\"games\">\n        <ion-icon name=\"easel-outline\"></ion-icon>\n        <ion-label>Partidos</ion-label>\n      </ion-tab-button>\n  \n      <ion-tab-button tab=\"teams\">\n        <ion-icon name=\"people-outline\"></ion-icon>\n        <ion-label>Equipos</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"players\">\n        <ion-icon name=\"person-outline\"></ion-icon>\n        <ion-label>Jugadores</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"publications\">\n        <ion-icon name=\"happy-outline\"></ion-icon>        \n        <ion-label>3° Tiempo</ion-label>\n      </ion-tab-button>\n\n    </ion-tab-bar>\n  \n  </ion-tabs>\n\n\n";
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/home/home-routing.module.ts":
+    /*!***************************************************!*\
+      !*** ./src/app/pages/home/home-routing.module.ts ***!
+      \***************************************************/
+
+    /*! exports provided: HomePageRoutingModule */
+
+    /***/
+    function srcAppPagesHomeHomeRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "HomePageRoutingModule", function () {
+        return HomePageRoutingModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ../../guards/auth.guard */
+      "./src/app/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _home_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! ./home.page */
+      "./src/app/pages/home/home.page.ts");
+
+      var routes = [{
+        path: '',
+        component: _home_page__WEBPACK_IMPORTED_MODULE_4__["HomePage"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+        children: [{
+          path: 'teams',
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | teams-teams-module */
+            [__webpack_require__.e("default~pages-payment-team-payment-team-module~teams-teams-module"), __webpack_require__.e("teams-teams-module")]).then(__webpack_require__.bind(null,
+            /*! ./teams/teams.module */
+            "./src/app/pages/home/teams/teams.module.ts")).then(function (m) {
+              return m.TeamsPageModule;
+            });
+          }
+        }, {
+          path: 'results',
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | results-results-module */
+            [__webpack_require__.e("common"), __webpack_require__.e("results-results-module")]).then(__webpack_require__.bind(null,
+            /*! ./results/results.module */
+            "./src/app/pages/home/results/results.module.ts")).then(function (m) {
+              return m.ResultsPageModule;
+            });
+          }
+        }, {
+          path: 'games',
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | games-games-module */
+            [__webpack_require__.e("default~games-games-module~pages-field-list-fields-list-fields-module~pages-game-create-game-admin-c~9b9fc035"), __webpack_require__.e("default~games-games-module~pages-game-create-game-admin-create-game-admin-module"), __webpack_require__.e("common"), __webpack_require__.e("games-games-module")]).then(__webpack_require__.bind(null,
+            /*! ./games/games.module */
+            "./src/app/pages/home/games/games.module.ts")).then(function (m) {
+              return m.GamesPageModule;
+            });
+          }
+        }, {
+          path: 'players',
+          loadChildren: function loadChildren() {
+            return __webpack_require__.e(
+            /*! import() | players-players-module */
+            "players-players-module").then(__webpack_require__.bind(null,
+            /*! ./players/players.module */
+            "./src/app/pages/home/players/players.module.ts")).then(function (m) {
+              return m.PlayersPageModule;
+            });
+          }
+        }, {
+          path: 'publications',
+          loadChildren: function loadChildren() {
+            return __webpack_require__.e(
+            /*! import() | publications-publications-module */
+            "publications-publications-module").then(__webpack_require__.bind(null,
+            /*! ./publications/publications.module */
+            "./src/app/pages/home/publications/publications.module.ts")).then(function (m) {
+              return m.PublicationsPageModule;
+            });
+          }
+        }, {
+          path: '',
+          redirectTo: '/home/results',
+          pathMatch: 'full'
+        }]
+      }, {
+        path: 'publications',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | publications-publications-module */
+          "publications-publications-module").then(__webpack_require__.bind(null,
+          /*! ./publications/publications.module */
+          "./src/app/pages/home/publications/publications.module.ts")).then(function (m) {
+            return m.PublicationsPageModule;
+          });
+        }
+      }];
+
+      var HomePageRoutingModule = function HomePageRoutingModule() {
+        _classCallCheck(this, HomePageRoutingModule);
+      };
+
+      HomePageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+      })], HomePageRoutingModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/home/home.module.ts":
+    /*!*******************************************!*\
+      !*** ./src/app/pages/home/home.module.ts ***!
+      \*******************************************/
+
+    /*! exports provided: HomePageModule */
+
+    /***/
+    function srcAppPagesHomeHomeModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "HomePageModule", function () {
+        return HomePageModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _home_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./home-routing.module */
+      "./src/app/pages/home/home-routing.module.ts");
+      /* harmony import */
+
+
+      var _home_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ./home.page */
+      "./src/app/pages/home/home.page.ts");
+      /* harmony import */
+
+
+      var _components_components_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ./../../components/components.module */
+      "./src/app/components/components.module.ts");
+
+      var HomePageModule = function HomePageModule() {
+        _classCallCheck(this, HomePageModule);
+      };
+
+      HomePageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _home_routing_module__WEBPACK_IMPORTED_MODULE_5__["HomePageRoutingModule"], _components_components_module__WEBPACK_IMPORTED_MODULE_7__["ComponentsModule"]],
+        declarations: [_home_page__WEBPACK_IMPORTED_MODULE_6__["HomePage"]]
+      })], HomePageModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/home/home.page.scss":
+    /*!*******************************************!*\
+      !*** ./src/app/pages/home/home.page.scss ***!
+      \*******************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppPagesHomeHomePageScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "#notification-button {\n  position: relative;\n  width: 42px;\n  top: 1px;\n  right: 1px;\n  overflow: visible !important;\n}\n\n#notifications-badge {\n  background-color: red;\n  position: absolute;\n  top: -3px;\n  right: -3px;\n  border-radius: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFFBQUE7RUFDQSxVQUFBO0VBQ0EsNEJBQUE7QUFDSjs7QUFHQTtFQUNJLHFCQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0FBQUoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI25vdGlmaWNhdGlvbi1idXR0b24geyAgICAgICAgICAgIFxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB3aWR0aDogNDJweDtcbiAgICB0b3A6MXB4O1xuICAgIHJpZ2h0OiAxcHg7XG4gICAgb3ZlcmZsb3c6IHZpc2libGUhaW1wb3J0YW50O1xufVxuXG5cbiNub3RpZmljYXRpb25zLWJhZGdlIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogLTNweDtcbiAgICByaWdodDogLTNweDtcbiAgICBib3JkZXItcmFkaXVzOiAxMDAlO1xufSJdfQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/home/home.page.ts":
+    /*!*****************************************!*\
+      !*** ./src/app/pages/home/home.page.ts ***!
+      \*****************************************/
+
+    /*! exports provided: HomePage */
+
+    /***/
+    function srcAppPagesHomeHomePageTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "HomePage", function () {
+        return HomePage;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @ionic-native/splash-screen/ngx */
+      "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
+      /* harmony import */
+
+
+      var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic-native/status-bar/ngx */
+      "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
+      /* harmony import */
+
+
+      var src_app_services_auth_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/services/auth-user.service */
+      "./src/app/services/auth-user.service.ts");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var src_app_services_payment_team_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/services/payment-team.service */
+      "./src/app/services/payment-team.service.ts");
+      /* harmony import */
+
+
+      var src_app_services_chat_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/services/chat.service */
+      "./src/app/services/chat.service.ts");
+      /* harmony import */
+
+
+      var src_app_services_messaging_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/services/messaging.service */
+      "./src/app/services/messaging.service.ts");
+      /* harmony import */
+
+
+      var src_app_services_sharer_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/services/sharer.service */
+      "./src/app/services/sharer.service.ts");
+
+      var HomePage = /*#__PURE__*/function () {
+        function HomePage(platform, splashScreen, statusBar, auth, alertController, _location, paymentTeamService, chatService, messagingService, toastCtrl, shareService) {
+          _classCallCheck(this, HomePage);
+
+          this.platform = platform;
+          this.splashScreen = splashScreen;
+          this.statusBar = statusBar;
+          this.auth = auth;
+          this.alertController = alertController;
+          this._location = _location;
+          this.paymentTeamService = paymentTeamService;
+          this.chatService = chatService;
+          this.messagingService = messagingService;
+          this.toastCtrl = toastCtrl;
+          this.shareService = shareService;
+          this.currentPageTitle = 'Dashboard';
+          this.appPages = [{
+            title: 'Dashboard',
+            url: '',
+            icon: 'easel'
+          }, {
+            title: 'Timeline',
+            url: '/timeline',
+            icon: 'film'
+          }, {
+            title: 'Settings',
+            url: '/settings',
+            icon: 'settings'
+          }];
+          this.initializeApp();
+          this.listenForMessages();
+          this.requestPermission();
+        }
+
+        _createClass(HomePage, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                while (1) {
+                  switch (_context3.prev = _context3.next) {
+                    case 0:
+                      _context3.next = 2;
+                      return this.auth.updateUserApi();
+
+                    case 2:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+          }
+        }, {
+          key: "initializeApp",
+          value: function initializeApp() {
+            var _this2 = this;
+
+            this.platform.ready().then(function () {
+              _this2.statusBar.styleDefault();
+
+              _this2.splashScreen.hide();
+
+              _this2.loadTheme();
+            });
+            this.chatService.init();
+            this.shareService.addThisInit();
+            setInterval(function () {
+              if (_this2.auth.user) _this2.auth.userModel.api_functionModel(_this2.auth.user.id, 'changesNotifications').subscribe(function (response) {
+                if (response['status'] == 'success') {
+                  var count = response['data']['counts_not'];
+
+                  if (count > _this2.auth.user.counts_not) {
+                    _this2.auth.user.counts_not = count;
+                    _this2.auth.user.teams = response['data']['teams'];
+                    _this2.auth.user.player = response['data']['player'];
+
+                    _this2.auth.saveUser();
+                  }
+                }
+              });
+            }, 50000);
+          }
+        }, {
+          key: "loadTheme",
+          value: function loadTheme() {
+            var _this3 = this;
+
+            return;
+            this.toggle = document.querySelector('#themeToggle'); // Listen for the toggle check/uncheck to toggle the dark class on the <body>
+
+            this.toggle.addEventListener('ionChange', function (ev) {
+              document.body.classList.toggle('dark', ev.detail.checked);
+            });
+            this.prefersDark = window.matchMedia('(prefers-color-scheme: dark)'); // Listen for changes to the prefers-color-scheme media query
+
+            this.prefersDark.addListener(function (e) {
+              return _this3.checkToggle(e.matches);
+            });
+          } // Called when the app loads
+
+        }, {
+          key: "loadApp",
+          value: function loadApp() {
+            this.checkToggle(this.prefersDark.matches);
+          } // Called by the media query to check/uncheck the toggle
+
+        }, {
+          key: "checkToggle",
+          value: function checkToggle(shouldCheck) {
+            this.toggle.checked = shouldCheck;
+          }
+        }, {
+          key: "logout",
+          value: function logout() {
+            this.auth.logout();
+          }
+        }, {
+          key: "showExitConfirm",
+          value: function showExitConfirm() {
+            this.alertController.create({
+              header: 'App termination',
+              message: 'Do you want to close the app?',
+              backdropDismiss: false,
+              buttons: [{
+                text: 'Stay',
+                role: 'cancel',
+                handler: function handler() {
+                  console.log('Application exit prevented!');
+                }
+              }, {
+                text: 'Exit',
+                handler: function handler() {
+                  navigator['app'].exitApp();
+                }
+              }]
+            }).then(function (alert) {
+              alert.present();
+            });
+          }
+        }, {
+          key: "ionViewDidLeave",
+          value: function ionViewDidLeave() {
+            console.log('ionViewDidLeave');
+            this.chatService.hide();
+          }
+        }, {
+          key: "listenForMessages",
+          value: function listenForMessages() {
+            var _this4 = this;
+
+            this.messagingService.getMessages().subscribe(function (msg) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this4, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+                var alert;
+                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                  while (1) {
+                    switch (_context4.prev = _context4.next) {
+                      case 0:
+                        console.log('msj firebase', msg);
+                        _context4.next = 3;
+                        return this.alertController.create({
+                          header: msg.notification.title,
+                          subHeader: msg.notification.body,
+                          message: msg.data.info,
+                          buttons: ['OK']
+                        });
+
+                      case 3:
+                        alert = _context4.sent;
+                        _context4.next = 6;
+                        return alert.present();
+
+                      case 6:
+                      case "end":
+                        return _context4.stop();
+                    }
+                  }
+                }, _callee4, this);
+              }));
+            });
+          }
+        }, {
+          key: "requestPermission",
+          value: function requestPermission() {
+            var _this5 = this;
+
+            this.messagingService.requestPermission().subscribe(function (token) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this5, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+                return regeneratorRuntime.wrap(function _callee5$(_context5) {
+                  while (1) {
+                    switch (_context5.prev = _context5.next) {
+                      case 0:
+                        this.auth.setTokenMessaging(token);
+                        console.log('token', token); //throw new Error( `user:${this.auth.user.completeName} token:${token}`);
+
+                        /*const toast = await this.toastCtrl.create({
+                          message: 'Got your token',
+                          duration: 2000
+                        });
+                        toast.present();
+                        */
+
+                      case 2:
+                      case "end":
+                        return _context5.stop();
+                    }
+                  }
+                }, _callee5, this);
+              }));
+            }, function (err) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this5, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
+                return regeneratorRuntime.wrap(function _callee6$(_context6) {
+                  while (1) {
+                    switch (_context6.prev = _context6.next) {
+                      case 0:
+                        console.error('error firebase', err);
+                        /*const alert = await this.alertController.create({
+                          header: 'Error',
+                          message: err,
+                          buttons: ['OK'],
+                        });
+                             
+                        await alert.present();
+                         */
+
+                      case 1:
+                      case "end":
+                        return _context6.stop();
+                    }
+                  }
+                }, _callee6);
+              }));
+            });
+          }
+        }, {
+          key: "deleteToken",
+          value: function deleteToken() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+              var toast;
+              return regeneratorRuntime.wrap(function _callee7$(_context7) {
+                while (1) {
+                  switch (_context7.prev = _context7.next) {
+                    case 0:
+                      this.messagingService.deleteToken();
+                      _context7.next = 3;
+                      return this.toastCtrl.create({
+                        message: 'Token removed',
+                        duration: 2000
+                      });
+
+                    case 3:
+                      toast = _context7.sent;
+                      toast.present();
+
+                    case 5:
+                    case "end":
+                      return _context7.stop();
+                  }
+                }
+              }, _callee7, this);
+            }));
+          }
+        }, {
+          key: "notificationsCount",
+          get: function get() {
+            return this.auth.user && this.auth.user.counts_not ? this.auth.user.counts_not : 0;
+          }
+        }]);
+
+        return HomePage;
+      }();
+
+      HomePage.ctorParameters = function () {
+        return [{
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]
+        }, {
+          type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"]
+        }, {
+          type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]
+        }, {
+          type: src_app_services_auth_user_service__WEBPACK_IMPORTED_MODULE_5__["AuthUserService"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]
+        }, {
+          type: _angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"]
+        }, {
+          type: src_app_services_payment_team_service__WEBPACK_IMPORTED_MODULE_7__["PaymentTeamService"]
+        }, {
+          type: src_app_services_chat_service__WEBPACK_IMPORTED_MODULE_8__["ChatService"]
+        }, {
+          type: src_app_services_messaging_service__WEBPACK_IMPORTED_MODULE_9__["MessagingService"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]
+        }, {
+          type: src_app_services_sharer_service__WEBPACK_IMPORTED_MODULE_10__["SharerService"]
+        }];
+      };
+
+      HomePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-home',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./home.page.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.page.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./home.page.scss */
+        "./src/app/pages/home/home.page.scss"))["default"]]
+      })], HomePage);
+      /***/
+    },
+
+    /***/
+    "./src/app/services/messaging.service.ts":
+    /*!***********************************************!*\
+      !*** ./src/app/services/messaging.service.ts ***!
+      \***********************************************/
+
+    /*! exports provided: MessagingService */
+
+    /***/
+    function srcAppServicesMessagingServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "MessagingService", function () {
+        return MessagingService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_fire_messaging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/fire/messaging */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-messaging.js");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
+
+      var MessagingService = /*#__PURE__*/function () {
+        function MessagingService(afMessaging) {
+          _classCallCheck(this, MessagingService);
+
+          this.afMessaging = afMessaging;
+          this.token = null;
+        }
+
+        _createClass(MessagingService, [{
+          key: "requestPermission",
+          value: function requestPermission() {
+            return this.afMessaging.requestToken.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (token) {
+              console.log('Store token to server: ', token);
+            }));
+          }
+        }, {
+          key: "getMessages",
+          value: function getMessages() {
+            return this.afMessaging.messages;
+          }
+        }, {
+          key: "deleteToken",
+          value: function deleteToken() {
+            if (this.token) {
+              this.afMessaging.deleteToken(this.token);
+              this.token = null;
+            }
+          }
+        }]);
+
+        return MessagingService;
+      }();
+
+      MessagingService.ctorParameters = function () {
+        return [{
+          type: _angular_fire_messaging__WEBPACK_IMPORTED_MODULE_2__["AngularFireMessaging"]
+        }];
+      };
+
+      MessagingService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      })], MessagingService);
+      /***/
+    }
+  }]);
+})();
+//# sourceMappingURL=pages-home-home-module-es5.js.map
