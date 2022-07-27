@@ -1,1 +1,1 @@
-cd .. && ng build --prod && sleep 10s && cd prod/ && git add -A && git commit -m "deploy app" && git push origin futbol-alem;
+cd .. && ng build --prod && sleep 10s && cd prod/ && git add -A && git commit -m "deploy app" && git push origin;
