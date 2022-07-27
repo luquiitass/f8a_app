@@ -1,10 +1,10 @@
 {
   "configVersion": 1,
-  "timestamp": 1658893499776,
+  "timestamp": 1658893711124,
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "Futbol 8 Alem",
+      "name": "Futbol Alem",
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "cacheQueryOptions": {
