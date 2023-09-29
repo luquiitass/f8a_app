@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Fútbol Alem</title>
+
+  <base href="."/> 
+
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png"/>
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+<link rel="stylesheet" href="styles.9d206dcff6c911e34121.css"></head>
+
+
+<body class="body dark">
+
+  <div id="html2canvas" ></div>
+
+  <app-root></app-root>
+  <div class="fb-customerchat" page_id="1730791230489387">
+  </div>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script src="runtime.ce7e19aca1de2aa70d2b.js" defer></script><script src="polyfills-es5.d997fca22274a899ad73.js" nomodule defer></script><script src="polyfills.a513cdf84329926bcc6a.js" defer></script><script src="scripts.19fe3561184b9e6a034f.js" defer></script><script src="main.4b4cf6a4973e89370c77.js" defer></script></body>
+
+<script type="text/javascript">
+  var originalFetch = window.fetch;
+
+  window.fetch = function () {
+      var args = [];
+      for (var _i = 0; _i < arguments.length; _i++) {
+          args[_i] = arguments[_i];
+      }
+      var url = args[0];
+      if (typeof url === 'string' && url.match(/\.svg/)) {
+          return new Promise(function (resolve, reject) {
+              var req = new XMLHttpRequest();
+              req.open('GET', url, true);
+              req.addEventListener('load', function () {
+                  resolve({ ok: true, status: 200, text: function () { return Promise.resolve(req.responseText); } });
+              });
+              req.addEventListener('error', reject);
+              req.send();
+          });
+      }
+      else {
+          return originalFetch.apply(void 0, args);
+      }
+  };
+</script>
+
+</html>

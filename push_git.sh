@@ -1,10 +1,9 @@
-rm -r www && echo "eliminado www de rais" &&
-cd .. && echo "ubicando en directorio prod/" &&
-ng build --prod && echo " build prod" &&
-sleep 10s && echo "slep 10s" &&
-cp -r www prod/www && echo "copiando /www en /prod/www" &&
-sleep 10s && echo "slep 10s" &&
-cd prod/ && echo "abriendo dir /prod/" &&
-git add -A && echo "git add" &&
-git commit -m "deploy app" &&  echo "commit " && 
-git push origin futbol-alem && echo "push futbol-alem";
+cd .. && echo "LUCAS-------------------->ubicando en directori raiz" &&
+ng build --prod && echo "LUCAS--------------------> build prod" &&
+sleep 10s && echo "LUCAS-------------------->slep 10s" &&
+cp -r www prod/www && echo "LUCAS--------------------> copiando /www en /prod/www" &&
+sleep 10s && echo "LUCAS--------------------> slep 10s" &&
+cd prod/ && echo "LUCAS--------------------> abriendo dir /prod/" &&
+git add -A && echo "LUCAS--------------------> git add" &&
+git commit -m "LUCAS--------------------> deploy app" &&  echo "commit " && 
+git push origin futbol-alem && echo "LUCAS--------------------> push futbol-alem";
