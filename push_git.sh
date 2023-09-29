@@ -1,3 +1,4 @@
+rm -r www && echo "LUCAS-------------------->borrando prod/www" &&
 cd .. && echo "LUCAS-------------------->ubicando en directori raiz" &&
 ng build --prod && echo "LUCAS--------------------> build prod" &&
 sleep 10s && echo "LUCAS-------------------->slep 10s" &&
